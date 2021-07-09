@@ -19,9 +19,9 @@ namespace WeatherStation
             this.station = station;
         }
 
-        public void ChangeWeather(object sender, WeatherArgs info)
+        public void ChangeWeather(WeatherEventArgs info)
         {
-            station.Update(this, info);
+            station.Notify(info);
         }
     }
 }

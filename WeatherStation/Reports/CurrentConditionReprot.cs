@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    public class CurrentConditionReprot : IObserver
+    public class CurrentConditionReprot
     {
-        public void Update(object sender, WeatherArgs info)
+        public void Update(object sender, WeatherEventArgs info)
         {
             Console.WriteLine("Weather changed:");
             Console.WriteLine($"Temperature: {info.Temperature}");
             Console.WriteLine($"Humidity: {info.Humidity}");
             Console.WriteLine($"Pressure: {info.Pressure}");
+            Console.WriteLine();
         }
     }
 }

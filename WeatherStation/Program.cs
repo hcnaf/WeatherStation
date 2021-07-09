@@ -4,13 +4,18 @@ namespace WeatherStation
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var station = new WeatherStation();
-            var weatherReport = new CurrentConditionReprot();
-            station.Register(weatherReport);
 
-            station.weatherData.ChangeWeather(station.weatherData, new WeatherArgs(31.05, 56.6, 760.3));
+            var currentWeatherReport = new CurrentConditionReprot();
+            station.Weather += currentWeatherReport.Update;
+
+            var statisticReport = new StatisticReport();
+            station.Weather += statisticReport.Update;
+
+            station.weatherData.ChangeWeather(new WeatherEventArgs(31.05, 56.6, 760.3));
+            station.weatherData.ChangeWeather(new WeatherEventArgs(28.9, 43.6, 751.3));
         }
     }
 }
