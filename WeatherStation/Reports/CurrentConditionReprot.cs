@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
+    /// <summary>
+    /// Current condition reporter.
+    /// </summary>
     public class CurrentConditionReprot
     {
+        /// <summary>
+        /// Shows current weather.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="info">Information about weather.</param>
         public void Update(object sender, WeatherEventArgs info)
         {
             Console.WriteLine("Weather changed:");

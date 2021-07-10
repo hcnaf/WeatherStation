@@ -6,18 +6,34 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    class WeatherStation
+    /// <summary>
+    /// Weather station.
+    /// </summary>
+    public class WeatherStation
     {
-        public WeatherData weatherData { get; private set; }
+        /// <summary>
+        /// Weather data. Is internal only for simmulating changing weather.
+        /// </summary>
+        internal WeatherData weatherData { get; private set; }
 
+        /// <summary>
+        /// Initializes weather station object and connects it to weather data.
+        /// </summary>
         public WeatherStation()
         {
             this.weatherData = new WeatherData(this);
         }
 
+        /// <summary>
+        /// Is raised whenever the weather is changed.
+        /// </summary>
         public event EventHandler<WeatherEventArgs> Weather = delegate { };
 
-        public void Notify(WeatherEventArgs info)
+        /// <summary>
+        /// Notifies all Weather subscribers.
+        /// </summary>
+        /// <param name="info"></param>
+        internal void Notify(WeatherEventArgs info)
         {
             if (info is null)
             {

@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
+    /// <summary>
+    /// Statistics reporter.
+    /// </summary>
     public class StatisticReport
     {
         private readonly List<double> temperatures = new();
         private readonly List<double> humidities = new();
         private readonly List<double> pressures = new();
 
+        /// <summary>
+        /// Updates statistics and shows it.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="info">New information about weather, that updates statistics.</param>
         public void Update(object sender, WeatherEventArgs info)
         {
             if (info is null)
